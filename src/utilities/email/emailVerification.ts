@@ -33,9 +33,9 @@ export default function emailVerification(request: Request, code: number, isRese
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            console.log(error);
+            // console.log(error);
             throw new Error(`Verification email error`)
         }
-        console.log('Message sent: %s', info.messageId);
+        // console.log('Message sent: %s', info.messageId);
     });
 }

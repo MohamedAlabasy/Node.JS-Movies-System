@@ -14,7 +14,7 @@ import routes from './routes/routes';
 
 const app = express();
 // #=======================================================================================#
-// #			                        connect mongoose                                   #
+// #			                           run server                                      #
 // #=======================================================================================#
 app.listen(process.env.PORT || 8888, () => {
     console.log(`App Run to http://${process.env.HOST}:${process.env.PORT || 8888}`);
