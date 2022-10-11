@@ -6,5 +6,5 @@ CREATE TABLE movies (
     rate integer DEFAULT 0,
     image text,
     user_id bigint REFERENCES users(id) NOT NULL,
-    category _id bigint REFERENCES categories(id) NOT NULL
+    category_id bigint REFERENCES categories(id) NOT NULL
 );
