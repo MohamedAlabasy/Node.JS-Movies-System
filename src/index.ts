@@ -2,15 +2,13 @@ import express from 'express';
 import 'dotenv/config'
 import body_parser from 'body-parser';
 import cors from 'cors';
-import multer from 'multer';
-import path from 'path';
 
 
 import morganMiddleware from './middleware/morganMiddleware';
 import notFoundMiddleware from './middleware/notFoundMiddleware';
 import errorMiddleware from './middleware/errorMiddleware';
 
-
+import routes from './routes/routes';
 
 const app = express();
 // #=======================================================================================#
@@ -32,13 +30,13 @@ app.use(cors());
 // #=======================================================================================#
 // #			                            router                                         #
 // #=======================================================================================#
-
+app.use('', morganMiddleware, routes);
 // #=======================================================================================#
 // #			                      not Found middleware                                 #
 // #=======================================================================================#
 app.use(notFoundMiddleware);
 // #=======================================================================================#
-// #			                         error middleware                                  #
+// #			                          middleware                                       #
 // #=======================================================================================#
 app.use(errorMiddleware);
 
