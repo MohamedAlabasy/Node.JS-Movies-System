@@ -23,10 +23,10 @@ export default function emailVerification(request: Request, code: number, isRese
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: `"ADS System" <${process.env.USER}>`, // sender address
+        from: `"Movies System" <${process.env.USER}>`, // sender address
         to: request.body.email, // list of receivers
-        subject: 'ADS System Verification Request', // Subject line
-        text: 'ADS System', // plain text body
+        subject: 'Movies System Verification Request', // Subject line
+        text: 'Movies System', // plain text body
         html: EmailMessagesDesign(request.body.name, code, isResetPassword) // html body
     };
 
