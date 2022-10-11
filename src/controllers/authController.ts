@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 
-import { UserModels } from '../models/userModels'
+import { UsersModels } from '../models/usersModels'
 import { EmailVerificationModels } from '../models/emailVerificationModels'
 import { ResetPasswordModels } from '../models/resetPasswordModels'
 
-const newUser = new UserModels()
+const newUser = new UsersModels()
 const emailVerification = new EmailVerificationModels()
 const resetPassword = new ResetPasswordModels()
 // #=======================================================================================#
@@ -12,11 +12,11 @@ const resetPassword = new ResetPasswordModels()
 // #=======================================================================================#
 export const register = async (request: Request, response: Response, next: NextFunction) => {
     await newUser.register(request)
-        .then(userData => {
+        .then(data => {
             response.json({
                 status: 1,
-                msg: `The code has been sent to your email 👉 ${userData.email}`,
-                data: userData
+                msg: `The code has been sent to your email 👉 ${data.email}`,
+                data
             })
         }).catch(error => {
             next(error)
@@ -28,10 +28,10 @@ export const register = async (request: Request, response: Response, next: NextF
 // #=======================================================================================#
 export const login = async (request: Request, response: Response, next: NextFunction) => {
     await newUser.login(request)
-        .then(userData => {
+        .then(data => {
             response.json({
                 status: 1,
-                data: userData
+                data
             })
         }).catch(error => {
             next(error)
@@ -46,10 +46,7 @@ export const activateUserEmail = async (request: Request, response: Response, ne
         .then(_ => {
             response.json({
                 status: 1,
-                data: {
-                    status: 1,
-                    data: 'email activate successful',
-                }
+                msg: 'email activate successful',
             })
         }).catch(error => {
             next(error)
@@ -61,13 +58,10 @@ export const activateUserEmail = async (request: Request, response: Response, ne
 // #=======================================================================================#
 export const sendEmailCodeToRestPassword = async (request: Request, response: Response, next: NextFunction) => {
     await resetPassword.sendEmailCodeToRestPassword(request)
-        .then((userData) => {
+        .then(data => {
             response.json({
                 status: 1,
-                data: {
-                    status: 1,
-                    data: `The code has been sent to your email 👉 ${userData.email}`
-                }
+                msg: `The code has been sent to your email 👉 ${data.email}`
             })
         }).catch(error => {
             next(error)
@@ -81,10 +75,7 @@ export const resetUserPassword = async (request: Request, response: Response, ne
         .then(_ => {
             response.json({
                 status: 1,
-                data: {
-                    status: 1,
-                    data: 'password updated successful',
-                }
+                msg: 'password updated successful',
             })
         }).catch(error => {
             next(error)
@@ -96,11 +87,10 @@ export const resetUserPassword = async (request: Request, response: Response, ne
 // #=======================================================================================#
 export const getUserById = async (request: Request, response: Response, next: NextFunction) => {
     await newUser.getUserById(request)
-        .then(userData => {
+        .then(data => {
             response.json({
                 status: 1,
-                token: userData.token,
-                data: userData
+                data
             })
         }).catch(error => {
             next(error)
@@ -111,11 +101,11 @@ export const getUserById = async (request: Request, response: Response, next: Ne
 // #=======================================================================================#
 export const getAllUsers = async (request: Request, response: Response, next: NextFunction) => {
     await newUser.getAllUsers(request)
-        .then(userData => {
+        .then(data => {
             response.json({
                 status: 1,
-                count: userData.length,
-                data: userData
+                count: data.length,
+                data
             })
         }).catch(error => {
             next(error)
