@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 
-import { categoriesModels } from '../models/categoriesModels'
+import { moviesModels } from '../models/moviesModels'
 
-const newCategory = new categoriesModels()
+const newMovie = new moviesModels()
 // #=======================================================================================#
 // #			                            create                                         #
 // #=======================================================================================#
 export const create = async (request: Request, response: Response, next: NextFunction) => {
-    await newCategory.create(request)
+    await newMovie.create(request)
         .then(data => {
             response.json({
                 status: 1,
@@ -18,10 +18,10 @@ export const create = async (request: Request, response: Response, next: NextFun
         })
 }
 // #=======================================================================================#
-// #                                 get category by id                                    #
+// #                                    get movie by id                                    #
 // #=======================================================================================#
-export const getCategoryById = async (request: Request, response: Response, next: NextFunction) => {
-    await newCategory.getCategoryById(request)
+export const getMoviesById = async (request: Request, response: Response, next: NextFunction) => {
+    await newMovie.getMoviesById(request)
         .then(data => {
             response.json({
                 status: 1,
@@ -32,10 +32,10 @@ export const getCategoryById = async (request: Request, response: Response, next
         })
 }
 // #=======================================================================================#
-// #                                    get all categories                                 #
+// #                                     get all movies                                    #
 // #=======================================================================================#
-export const getAllCategories = async (request: Request, response: Response, next: NextFunction) => {
-    await newCategory.getAllCategories(request)
+export const getAllMovies = async (request: Request, response: Response, next: NextFunction) => {
+    await newMovie.getAllMovies(request)
         .then(data => {
             response.json({
                 status: 1,
@@ -47,28 +47,28 @@ export const getAllCategories = async (request: Request, response: Response, nex
         })
 }
 // #=======================================================================================#
-// #                                      update Category                                  #
+// #                                      update movie                                     #
 // #=======================================================================================#
-export const updateCategory = async (request: Request, response: Response, next: NextFunction) => {
-    await newCategory.updateCategory(request)
-        .then(_ => {
+export const updateMovies = async (request: Request, response: Response, next: NextFunction) => {
+    await newMovie.updateMovies(request)
+        .then(data => {
             response.json({
                 status: 1,
-                msg: 'title updated successfully'
+                msg: 'movie updated successfully'
             })
         }).catch(error => {
             next(error)
         })
 }
 // #=======================================================================================#
-// #                                      delete Category                                  #
+// #                                       delete movie                                    #
 // #=======================================================================================#
-export const deleteCategory = async (request: Request, response: Response, next: NextFunction) => {
-    await newCategory.deleteCategory(request)
+export const deleteMovies = async (request: Request, response: Response, next: NextFunction) => {
+    await newMovie.deleteMovies(request)
         .then(_ => {
             response.json({
                 status: 1,
-                msg: 'category deleted successfully'
+                msg: 'movie deleted successfully'
             })
         }).catch(error => {
             next(error)
