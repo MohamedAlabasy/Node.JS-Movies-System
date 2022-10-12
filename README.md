@@ -3,5 +3,5 @@
 
 ## DataBase ERD
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/93389016/195110950-5096455f-9063-49e7-a257-35a0c9b26148.jpg" alt="ERP Database">
+   <img src="https://user-images.githubusercontent.com/93389016/195209452-77d05549-4e6c-4c28-8b98-662e514bf225.jpg" alt="ERP Database">
 </p>
