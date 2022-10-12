@@ -103,6 +103,8 @@ node run start
 
 `Step 6` : After completing the registration as a new user, you must go to your email to confirm the email through the code sent to you
 
+<hr>
+
 To run eslint to check error
 
 ```
