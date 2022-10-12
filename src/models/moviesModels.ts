@@ -2,10 +2,6 @@ import { Request } from 'express';
 
 import Client from '../database';
 
-import { createClient } from 'redis';
-const redisClient = createClient();
-redisClient.connect();
-
 import validateRequest from '../utilities/validateRequest';
 
 export type movies = {
@@ -184,5 +180,5 @@ export class moviesModels {
             throw new Error(error + '')
         }
     }
-   
+
 }
