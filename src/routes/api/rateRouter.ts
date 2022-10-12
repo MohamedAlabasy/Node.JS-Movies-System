@@ -30,7 +30,7 @@ function checkID() {
 function checkDate() {
     return [
         body('rate').exists().withMessage('you must enter rate')
-            .isInt().withMessage('rate must be integer')
+            .isNumeric().withMessage('rate must be integer')
             .isLength({ min: 0, max: 5 }).withMessage('rate must be between 0 to 5'),
         body('movie_id').exists().withMessage('you must enter movie_id').isInt().withMessage('invalid movie_id'),
 

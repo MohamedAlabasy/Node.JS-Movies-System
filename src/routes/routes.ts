@@ -12,7 +12,7 @@ const routes = express.Router()
 routes.use('/user', auth);
 routes.use('/categories', categories);
 routes.use('/movies', movies);
-routes.use('/rate', rates);
+routes.use('/rates', rates);
 
 
 
