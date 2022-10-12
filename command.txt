@@ -84,6 +84,11 @@ npm i pg
 npm i -D @types/pg
 
 
+# install redis
+npm i redis
+npm i -D @types/redis
+
+
 # install db-migrate
 npm i -D db-migrate
 yarn add db-migrate db-migrate-pg
